@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Lenis from '@studio-freight/lenis'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -11,6 +11,7 @@ import SectionDots from './components/layout/SectionDots'
 // UI
 import Cursor from './components/ui/Cursor'
 import Preloader from './components/ui/Preloader'
+import PageTransition from './components/ui/PageTransition'
 
 // Pages
 import Home from './pages/Home'
@@ -27,7 +28,9 @@ function ScrollToTop() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const location = useLocation();
+  const prevPathRef = useRef(location.pathname);
 
   // Smooth Scroll
   useEffect(() => {
@@ -39,20 +42,36 @@ function App() {
     requestAnimationFrame(raf)
   }, [])
 
+  // Trigger page transition on route change (skip initial load)
+  useEffect(() => {
+    if (!isLoading && prevPathRef.current !== location.pathname) {
+      setIsTransitioning(true);
+    }
+    prevPathRef.current = location.pathname;
+  }, [location.pathname, isLoading]);
+
   return (
     <>
       <ScrollToTop />
       <Cursor />
 
+      {/* Initial Preloader (full clapperboard + words) */}
       <AnimatePresence mode="wait">
         {isLoading && <Preloader key="preloader" onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
+
+      {/* Route Transition (clapperboard snap only) */}
+      <AnimatePresence mode="wait">
+        {isTransitioning && (
+          <PageTransition key="transition" onComplete={() => setIsTransitioning(false)} />
+        )}
       </AnimatePresence>
 
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        style={{ pointerEvents: isLoading ? 'none' : 'auto' }}
+        style={{ pointerEvents: isLoading || isTransitioning ? 'none' : 'auto' }}
       >
         <Header />
         {location.pathname === '/' && <SectionDots />}
