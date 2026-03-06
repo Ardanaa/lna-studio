@@ -1,0 +1,240 @@
+.container {
+  padding: var(--section-padding);
+  height: var(--section-height);
+  min-height: var(--section-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.heading {
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.9;
+  margin: 0;
+  color: var(--bg-color);
+  letter-spacing: -2px;
+}
+
+.accent {
+  color: var(--accent-color);
+}
+
+.headerMeta {
+  border-top: 1px solid var(--bg-color);
+  padding-top: 1.5vh;
+  margin-top: 1.5vh;
+}
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Slider Navigation */
+.navControls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.navButton {
+  border: 1px solid var(--bg-color);
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.navButton.active {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.navButton.disabled {
+  background-color: transparent;
+  color: rgba(0,0,0,0.3);
+  cursor: default;
+}
+
+.counter {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+/* Slider */
+.slider {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 3vh 0;
+  flex: 1;
+  align-items: stretch;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.card {
+  min-width: clamp(280px, 30vw, 400px);
+  max-width: clamp(280px, 30vw, 400px);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.image:hover {
+  filter: grayscale(0%) contrast(1.1);
+  transform: scale(1.05);
+}
+
+.cardMeta {
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin-top: 12px;
+}
+
+.cardMetaRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.metaLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  color: rgba(0,0,0,0.4);
+  margin: 0 0 3px 0;
+}
+
+.metaValue {
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.metaGenre {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(0,0,0,0.5);
+  margin: 0;
+}
+
+/* Archive Button */
+.archiveBar {
+  border-top: 1px solid var(--bg-color);
+  padding-top: 2vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.archiveButton {
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.archiveButton:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    height: 100vh;
+    min-height: 100vh;
+    padding: 8vh 6vw 6vh;
+    overflow: hidden;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .label {
+    font-size: 0.7rem;
+  }
+
+  .navButton {
+    padding: 8px 14px;
+    font-size: 1rem;
+  }
+
+  .card {
+    min-width: 75vw;
+    max-width: 75vw;
+  }
+
+  .slider {
+    gap: 20px;
+  }
+
+  .archiveBar {
+    justify-content: center;
+  }
+
+  .archiveButton {
+    font-size: 0.8rem;
+    padding: 12px 20px;
+    letter-spacing: 1px;
+    width: 100%;
+    text-align: center;
+  }
+}
+

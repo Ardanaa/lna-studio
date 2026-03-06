@@ -1,0 +1,99 @@
+.container {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 5, 5, 0.4);
+}
+
+.iframeContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300vw;
+  height: 300vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.content {
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+}
+
+.titleWrapper {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: 8px;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.subtitle {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0 auto;
+  letter-spacing: 4px;
+  font-weight: 400;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.subtitleWrapper {
+  overflow: hidden;
+  margin-top: 2vh;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 50px;
+  background-color: var(--text-color);
+  opacity: 0.5;
+}

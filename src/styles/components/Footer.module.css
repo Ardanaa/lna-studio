@@ -1,0 +1,246 @@
+.container {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  min-height: var(--section-height);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+/* Marquee */
+.marqueeWrapper {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 15px 0;
+}
+
+.marqueeText {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+/* Content */
+.content {
+  padding: 8vh 4vw 0 4vw;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* CTA */
+.cta {
+  cursor: pointer;
+  margin-bottom: 6vh;
+}
+
+.ctaHeading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 2px;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ctaArrow {
+  color: var(--accent-color);
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.ctaSubtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--secondary-color);
+  margin-top: 10px;
+}
+
+/* Info Grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.infoCol1 { grid-column: 1 / span 3; }
+.infoCol2 { grid-column: 5 / span 3; }
+.infoCol3 { grid-column: 9 / span 2; }
+.infoCol4 {
+  grid-column: 12 / span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.infoLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--secondary-color);
+  margin: 0 0 10px 0;
+}
+
+.infoLink {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+
+.infoLink:hover {
+  color: var(--accent-color);
+}
+
+.infoText {
+  color: var(--text-color);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Back to Top */
+.backToTop {
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--text-color);
+  padding: 12px 16px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.backToTop:hover {
+  border-color: var(--accent-color);
+}
+
+.backToTopLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: var(--secondary-color);
+  margin-top: 8px;
+  text-align: right;
+}
+
+/* Giant Brand */
+.brandWrapper {
+  margin-top: auto;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2vh;
+}
+
+.brandText {
+  font-size: clamp(5rem, 18vw, 20rem);
+  line-height: 0.85;
+  margin: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+  letter-spacing: -5px;
+  user-select: none;
+}
+
+/* Copyright */
+.copyright {
+  padding-top: 2vh;
+  padding-bottom: 3vh;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px;
+}
+
+.copyright p {
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .content {
+    padding: 6vh 6vw 0;
+  }
+
+  .cta {
+    margin-bottom: 4vh;
+  }
+
+  .ctaHeading {
+    font-size: 1.8rem;
+    gap: 10px;
+  }
+
+  .ctaArrow {
+    font-size: 1.8rem;
+  }
+
+  .ctaSubtext {
+    font-size: 0.7rem;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .infoCol1,
+  .infoCol2,
+  .infoCol3 {
+    grid-column: auto;
+  }
+
+  .infoCol4 {
+    grid-column: auto;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .infoLink {
+    font-size: 0.85rem;
+  }
+
+  .infoText {
+    font-size: 0.85rem;
+  }
+
+  .brandText {
+    font-size: clamp(3rem, 15vw, 6rem);
+    letter-spacing: -2px;
+  }
+
+  .copyright {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.65rem;
+    padding-bottom: 2vh;
+  }
+}
+

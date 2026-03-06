@@ -1,0 +1,156 @@
+:root {
+  /* Production House Color Palette */
+  --bg-color: #0d0d0d;
+  --text-color: #f0f0f0;
+  --accent-color: #FF5722;
+  --secondary-color: #888888;
+
+  /* Spacing Tokens */
+  --section-padding: 8vh 4vw;
+  --section-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', -apple-system, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+/* Industrial typography for headings */
+h1, h2, h3, .serif-heading, .display-heading {
+  font-family: 'Syne', sans-serif;
+  text-transform: uppercase;
+}
+
+a, button, input, textarea {
+  cursor: none;
+}
+
+/* Custom Radio Buttons */
+.custom-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.custom-radio:hover {
+  color: var(--accent-color);
+}
+
+.custom-radio input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 0;
+  background: transparent;
+  position: relative;
+  transition: border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.custom-radio input[type="radio"]:checked {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+}
+
+.custom-radio input[type="radio"]:hover {
+  border-color: var(--text-color);
+}
+
+/* Section Navigation Dots */
+.section-dots {
+  position: fixed;
+  right: 2vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 45;
+  mix-blend-mode: difference;
+}
+
+.section-dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(255,255,255,0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.section-dot.active {
+  background: var(--text-color);
+  border-color: var(--text-color);
+}
+
+.section-dot:hover {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4vw;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section-dots {
+    display: none;
+  }
+
+  body,
+  a, button, input, textarea {
+    cursor: auto;
+  }
+}
+

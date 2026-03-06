@@ -1,0 +1,155 @@
+.container {
+  padding: var(--section-padding);
+  height: var(--section-height);
+  min-height: var(--section-height);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.headerBlock {
+  margin-bottom: 3vh;
+}
+
+.heading {
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.9;
+  margin: 0;
+  color: var(--text-color);
+  letter-spacing: -2px;
+}
+
+.accent {
+  color: var(--accent-color);
+}
+
+.headerDivider {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1.5vh;
+  margin-top: 1.5vh;
+}
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(15px, 3vh, 30px) 20px;
+  width: 100%;
+}
+
+.halfLeft {
+  grid-column: 1 / span 6;
+}
+
+.halfRight {
+  grid-column: 7 / span 6;
+}
+
+.fullWidth {
+  grid-column: 1 / span 12;
+}
+
+.fieldLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 0;
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-bottom-color: var(--text-color);
+}
+
+.textarea {
+  composes: input;
+  resize: none;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 30px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.submitCol {
+  grid-column: 1 / span 4;
+}
+
+.submitButton {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: none;
+  padding: 18px 30px;
+  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+  font-weight: 800;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background-color: var(--accent-color);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    height: 100vh;
+    min-height: 100vh;
+    padding: 10vh 6vw 8vh;
+    overflow-y: auto;
+  }
+
+  .halfLeft,
+  .halfRight {
+    grid-column: 1 / -1;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .submitCol {
+    grid-column: 1 / -1;
+  }
+
+  .submitButton {
+    font-size: 0.85rem;
+    padding: 16px 20px;
+    letter-spacing: 1px;
+  }
+
+  .input {
+    font-size: 1rem;
+  }
+}
+
